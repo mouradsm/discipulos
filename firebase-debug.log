@@ -1,0 +1,97 @@
+[debug] [2018-09-25T18:49:15.072Z] ----------------------------------------------------------------------
+[debug] [2018-09-25T18:49:15.078Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2018-09-25T18:49:15.079Z] CLI Version:   3.18.4
+[debug] [2018-09-25T18:49:15.079Z] Platform:      linux
+[debug] [2018-09-25T18:49:15.079Z] Node Version:  v8.10.0
+[debug] [2018-09-25T18:49:15.079Z] Time:          Tue Sep 25 2018 15:49:15 GMT-0300 (-03)
+[debug] [2018-09-25T18:49:15.079Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-25T18:49:15.147Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-09-25T18:49:15.148Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/mouradsm/projetos/discipulos
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-09-25T18:49:25.605Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-25T18:49:25.605Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/fZmaCQL1tYPE4UefH_lUO4iUWjBJSYXIUaKEqa1Pnso',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Sep 25 2018 15:49:25 GMT-0300 (-03)
+[debug] [2018-09-25T18:49:40.112Z] ----------------------------------------------------------------------
+[debug] [2018-09-25T18:49:40.113Z] Command:       /usr/local/bin/node /usr/local/bin/firebase login
+[debug] [2018-09-25T18:49:40.113Z] CLI Version:   3.18.4
+[debug] [2018-09-25T18:49:40.113Z] Platform:      linux
+[debug] [2018-09-25T18:49:40.113Z] Node Version:  v8.10.0
+[debug] [2018-09-25T18:49:40.113Z] Time:          Tue Sep 25 2018 15:49:40 GMT-0300 (-03)
+[debug] [2018-09-25T18:49:40.113Z] ----------------------------------------------------------------------
+[debug] 
+[info] Already logged in as diegodaerica@gmail.com
+[debug] [2018-09-25T18:51:29.485Z] ----------------------------------------------------------------------
+[debug] [2018-09-25T18:51:29.487Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2018-09-25T18:51:29.487Z] CLI Version:   4.2.1
+[debug] [2018-09-25T18:51:29.487Z] Platform:      linux
+[debug] [2018-09-25T18:51:29.487Z] Node Version:  v8.10.0
+[debug] [2018-09-25T18:51:29.487Z] Time:          Tue Sep 25 2018 15:51:29 GMT-0300 (-03)
+[debug] [2018-09-25T18:51:29.487Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-25T18:51:29.495Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-09-25T18:51:29.495Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/mouradsm/projetos/discipulos
+
+[debug] [2018-09-25T18:51:58.769Z] ----------------------------------------------------------------------
+[debug] [2018-09-25T18:51:58.771Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2018-09-25T18:51:58.771Z] CLI Version:   4.2.1
+[debug] [2018-09-25T18:51:58.771Z] Platform:      linux
+[debug] [2018-09-25T18:51:58.771Z] Node Version:  v8.10.0
+[debug] [2018-09-25T18:51:58.771Z] Time:          Tue Sep 25 2018 15:51:58 GMT-0300 (-03)
+[debug] [2018-09-25T18:51:58.771Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-25T18:51:58.779Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-09-25T18:51:58.779Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/mouradsm/projetos/discipulos
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-09-25T18:52:01.151Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-25T18:52:01.152Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+

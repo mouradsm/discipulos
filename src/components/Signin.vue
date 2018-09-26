@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 class="text-xs-center" mt-5>
-        <h1>Sign In</h1>
+        <h1>LOGIN</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 mt-3>
         <form @submit.prevent="userSignIn">
@@ -14,6 +14,8 @@
             </v-flex>
             <v-flex>
               <v-text-field
+                append-icon="email"
+                solo
                 name="email"
                 label="Email"
                 id="email"
@@ -23,15 +25,17 @@
             </v-flex>
             <v-flex>
               <v-text-field
+                append-icon="lock"
+                solo
                 name="password"
-                label="Password"
+                label="Senha"
                 id="password"
                 type="password"
                 v-model="password"
                 required></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
-              <v-btn color="primary" type="submit">Sign In</v-btn>
+              <v-btn color="primary" type="submit">Entrar</v-btn>
             </v-flex>
           </v-layout>
         </form>
@@ -51,7 +55,10 @@ export default {
   },
   methods: {
     userSignIn () {
-      this.$store.dispatch('userSignIn', {email: this.email, password: this.password})
+      this.$store.dispatch('userSignIn', {
+        email: this.email,
+        password: this.password
+      })
     }
   },
   computed: {
@@ -64,14 +71,15 @@ export default {
   },
   watch: {
     error (value) {
-      if (value) { this.alert = true }
+      if (value) {
+        this.alert = true
+      }
     },
     alert (value) {
       if (!value) {
         this.$store.commit('setError', null)
       }
     }
-
   }
 }
 </script>

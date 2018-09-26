@@ -17,12 +17,12 @@
       <v-list>
         <v-divider light></v-divider>
 
-        <v-list-tile to="/home">
+        <!-- <v-list-tile to="/home">
           <v-list-tile-action>
             <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>Home</v-list-tile-content>
-        </v-list-tile>
+        </v-list-tile> -->
 
         <v-list-group  prepend-icon="account_circle" no-action v-if="this.isAuthenticated">
           <v-list-tile slot="activator">
@@ -49,7 +49,7 @@
       </v-list>
     </v-navigation-drawer>
 
-   <v-toolbar app>
+   <v-toolbar app v-if="this.isAuthenticated">
       <span>
         <v-toolbar-side-icon @click="sidebar = !sidebar">
         </v-toolbar-side-icon>

@@ -2,18 +2,50 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import firebase from 'firebase'
 
-const routerOptions = [
-  { path: '*', component: 'NotFound' },
-  { path: '/', component: 'Landing' },
-  { path: '/signin', component: 'Signin' },
-  { path: '/signup', component: 'Signup' },
-  { path: '/home', component: 'Home', meta: { requiresAuth: true } }
+const routerOptions = [{
+  path: '*',
+  component: 'NotFound'
+},
+{
+  path: '/',
+  component: 'Landing'
+},
+{
+  path: '/signin',
+  component: 'Signin'
+},
+{
+  path: '/signup',
+  component: 'Signup'
+},
+{
+  path: '/home',
+  component: 'Home',
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: '/cadastrar',
+  component: 'Cadastrar',
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: '/discipulos',
+  component: 'Discipulos',
+  meta: {
+    requiresAuth: true
+  }
+}
 ]
 
 const routes = routerOptions.map(route => {
   return {
     ...route,
-    component: () => import(`@/components/${route.component}.vue`)
+    component: () =>
+      import(`@/components/${route.component}.vue`)
   }
 })
 

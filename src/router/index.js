@@ -8,7 +8,7 @@ const routerOptions = [{
 },
 {
   path: '/',
-  component: 'Landing'
+  component: 'Signin'
 },
 {
   path: '/signin',

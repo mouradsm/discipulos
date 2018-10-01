@@ -90,7 +90,7 @@ export default {
       cobertura: '',
       error: null,
       alert: false,
-      estadoCivil: ['Casado', 'Solteiro', 'Divorciado']
+      estadoCivil: ['Casado', 'Solteiro', 'Divorciado', 'Criança']
     }
   }
 }

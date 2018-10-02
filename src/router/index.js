@@ -8,7 +8,10 @@ const routerOptions = [{
 },
 {
   path: '/',
-  component: 'Signin'
+  component: 'Home',
+  meta: {
+    requiresAuth: true
+  }
 },
 {
   path: '/signin',

@@ -24,6 +24,15 @@
             </v-flex>
             <v-flex xs12>
               <v-text-field
+               solo
+                name="email"
+                label="Email"
+                id="email"                
+                v-model="email"
+                required></v-text-field>
+            </v-flex>
+            <v-flex xs12>
+              <v-text-field
                 solo
                 name="cobertura"
                 label="Cobertura"
@@ -35,17 +44,18 @@
             <v-flex xs7>
               <v-text-field
                 solo
-                label="Telefone"
-                id="telefone"
+                label="Celular"
+                id="cel"
                 type="text"
-                v-model="telefone"
+                v-model="cel"
+                mask="(##) #####-#### "
                 required
             ></v-text-field>
             </v-flex>
             <v-flex xs4 offset-xs1>
               <v-select
                   solo
-                  label="Estado Civil"
+                  label="E. Civil"
                   :items="estadoCivil">
               </v-select>
             </v-flex>
@@ -59,14 +69,12 @@
               ></v-slider>
             </v-flex>
             <v-flex xs12>
-              <v-textarea
-                solo
-                label="Situação"
-              >
-
-              </v-textarea>
+              <v-select
+                  solo
+                  label="Situação"
+                  :items="situacao">
+              </v-select>
             </v-flex>
-
             <v-flex class="text-xs-center" mt-3>
               <v-btn color="primary" type="submit">Cadastrar</v-btn>
             </v-flex>
@@ -80,17 +88,30 @@
 <script>
 export default {
   data () {
-    // const defaultForm = Object.freeze({
-    //   nome: ''
-    // })
-
-    return {
+    const defaultForm = Object.freeze({
       nome: '',
       email: '',
       cobertura: '',
+      telefone: '',
+      idade: null,
+      error: null
+    })
+
+    return {
+      form: Object.assign({}, defaultForm),
+      defaultForm,
+
+      nome: '',
+      email: '',
+      cobertura: '',
+      telefone: '',
+      estadoCivilSelecionado: '',
+      situacaoSelecionada: '',
+      idade: null,
       error: null,
       alert: false,
-      estadoCivil: ['Casado', 'Solteiro', 'Divorciado', 'Criança']
+      estadoCivil: ['Casado', 'Solteiro', 'Divorciado', 'Criança'],
+      situacao: ['Vinculado', 'Novo na Fé', 'Aguardando Confirmação']
     }
   }
 }

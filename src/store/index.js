@@ -2,18 +2,23 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 // import { router } from 'sw-toolbox'
 import router from '@/router'
-import firebase from 'firebase'
+const fb = require('../firebaseConfig.js')
 
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
     appTitle: 'Gestão de Discipulos',
+    discipulo: null,
     user: null,
     error: null,
-    loading: false
+    loading: false,
+    discipulos: []
   },
   mutations: {
+    setAppTitle (state, payload) {
+      state.appTitle = payload
+    },
     setUser (state, payload) {
       state.user = payload
     },
@@ -22,45 +27,78 @@ export const store = new Vuex.Store({
     },
     setLoading (state, payload) {
       state.loading = payload
+    },
+    salvarDiscipulo (state, payload) {
+      state.discipulo = payload
     }
   },
   actions: {
-    userSignIn ({
-      commit
-    }, payload) {
+    setAppTitle ({commit}, payload) {
+      commit('setAppTitle', payload)
+    },
+    userSignIn ({ commit }, payload) {
       commit('setLoading', true)
-      firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
-        .then(firebaseUser => {
-          commit('setUser', {
-            email: firebaseUser.user.email
-          })
+      fb.auth.signInWithEmailAndPassword(payload.email, payload.password)
+        .then((firebaseUser) => {
+          commit('setUser', { email: firebaseUser.user.email })
           commit('setLoading', false)
           commit('setError', null)
           router.push('/home')
         })
-        .catch(error => {
+        .catch((error) => {
           commit('setError', error.message)
           commit('setLoading', false)
         })
     },
-    autoSignIn ({
-      commit
-    }, payload) {
+    autoSignIn ({ commit }, payload) {
       commit('setUser', {
         email: payload.email
       })
     },
-    userSignOut ({
-      commit
-    }) {
-      firebase.auth().signOut()
+    userSignOut ({ commit }) {
+      fb.auth.signOut()
       commit('setUser', null)
       router.push('/')
+    },
+    salvarDiscipulo ({ commit }, payload) {
+      const discipulo = {
+        nome: payload.nome,
+        email: payload.email,
+        cobertura: payload.cobertura,
+        estadoCivil: payload.estadoCivilSelecionado,
+        telefone: payload.telefone,
+        idade: payload.idade,
+        situacao: payload.situacaoSelecionada,
+        nascimento: payload.nascimento,
+        inclusao: new Date()
+      }
+
+      commit('setLoading', true)
+      fb.db.collection('discipulos').add(discipulo)
+        .then((docRef) => {
+          commit('salvarDiscipulo', discipulo)
+          commit('setLoading', false)
+          commit('setError', null)
+          console.log('Documento criado: ',
+            docRef.id)
+        })
+        .catch((error) => {
+          commit('setError', error.message)
+        })
     }
   },
   getters: {
     isAuthenticated (state) {
       return state.user !== null && state.user !== undefined
+    },
+    loading (state) {
+      return state.loading
+    },
+    error (state) {
+      return state.error
+    },
+    discipulos (state) {
+      return state.discipulos
     }
   }
 })

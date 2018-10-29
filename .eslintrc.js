@@ -5,6 +5,7 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module',
+    esversion: 6
   },
   env: {
     browser: true,

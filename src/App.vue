@@ -47,6 +47,10 @@
           <v-list-tile-content>Sign Out</v-list-tile-content>
         </v-list-tile>
       </v-list>
+      <v-footer class="pa-3" absolute>
+        <v-spacer></v-spacer>
+        <div><v-icon>code</v-icon> v0.0.1</div>
+      </v-footer>
     </v-navigation-drawer>
 
    <v-toolbar app v-if="this.isAuthenticated">

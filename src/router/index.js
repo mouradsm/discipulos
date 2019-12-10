@@ -41,6 +41,13 @@ const routerOptions = [{
   meta: {
     requiresAuth: true
   }
+},
+{
+  path: '/detalhe/:uid',
+  component: 'Detalhe',
+  meta: {
+    requiresAuth: true
+  }
 }
 ]
 

@@ -17,7 +17,7 @@
         </v-snackbar>
         <v-form @submit.prevent="submit" ref="form">
           <v-layout row wrap>
-            <v-flex>''
+            <v-flex>
               <v-alert type="error" dismissible v-model="alert">
                 {{ error }}
               </v-alert>

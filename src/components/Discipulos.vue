@@ -4,8 +4,9 @@
       <v-card>
         <v-list two-line sub-header>
           <v-subheader>Discipulos</v-subheader>
+          <v-divider></v-divider>
           <template v-for="(item, index) in discipulos">
-              <v-list-tile :key="index.nome" @click="router.push({path: '/detalhe/' + item.uid})">
+              <v-list-tile :key="item.nome" @click="router.push({path: '/detalhe/' + item.uid})">
                 <v-list-tile-avatar>
                   <img src="https://cdn.vuetifyjs.com/images/lists/1.jpg">
                 </v-list-tile-avatar>
@@ -14,7 +15,7 @@
                   <v-list-tile-sub-title>{{item.cobertura}}</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
-              <v-divider :key="index"></v-divider>
+              <v-divider v-if="!(index == discipulos.length - 1)" :key="index"></v-divider>
           </template>
           <!-- <template v-for="(item, index) in items">
             <v-subheader
@@ -91,3 +92,6 @@ export default {
   }
 }
 </script>
+<style scope>
+
+</style>

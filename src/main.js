@@ -9,6 +9,7 @@ import {
 const fb = require('./firebaseConfig.js')
 
 Vue.use(Vuetify)
+Vue.use(require('vue-moment'))
 
 Vue.config.productionTip = false
 Vue.config.devtools = true

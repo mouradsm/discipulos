@@ -110,7 +110,9 @@ export default {
       if (this.isAuthenticated) {
         return [
           { title: 'Visualisar', path: '/discipulos', icon: 'people' },
-          { title: 'Cadastrar', path: '/cadastrar', icon: 'person' }
+          { title: 'Cadastrar', path: '/cadastrar', icon: 'person' },
+          { title: 'Vinculos', path: '/vinculos', icon: 'person' },
+          { title: 'Gerenciar Vínculo', path: '/add-vinculo', icon: 'person' }
         ]
       }
     },

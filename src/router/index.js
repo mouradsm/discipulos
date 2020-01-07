@@ -43,6 +43,20 @@ const routerOptions = [{
   }
 },
 {
+  path: '/vinculos',
+  component: 'Vinculos',
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: '/add-vinculo/:uid',
+  component: 'NovoVinculo',
+  meta: {
+    requiresAuth: true
+  }
+},
+{
   path: '/detalhe/:uid',
   component: 'Detalhe',
   meta: {

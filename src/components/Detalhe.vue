@@ -21,9 +21,30 @@
                 <v-icon>edit</v-icon>
               </v-btn>
 
-              <v-btn dark icon>
+              <!-- <v-btn dark icon>
+                <v-icon>more_vert</v-icon>
+              </v-btn> -->
+              <v-menu bottom left>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                dark
+                icon
+                v-on="on"
+              >
                 <v-icon>more_vert</v-icon>
               </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-tile
+                v-for="(item, i) in menuItems"
+                :key="i"
+                :to="item.link"
+              >
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
             </v-card-title>
 
             <v-spacer></v-spacer>
@@ -145,22 +166,27 @@ const fb = require('../firebaseConfig.js')
 
 // import router from '../router'
 export default {
+
   created () {
-    fb.db.collection('discipulos').doc(this.$route.params.uid)
+    let uid = this.$route.params.uid
+    fb.db.collection('discipulos').doc(uid)
       .get().then(snapshot => {
-        this.discipulo = snapshot.data()
+        this.discipulo = {'uid': uid, ...snapshot.data()}
+        this.menuItems.push({title: 'Adicionar Vinculo', 'link': `/add-vinculo/${uid}`})
       })
+  },
+  computed: {
+    uid: () => this.discipulo.uid
   },
   methods: {
     format_date (value) {
       if (value) { return value }
     }
   },
-  data () {
-    return {
-      discipulo: ''
-    }
-  }
+  data: () => ({
+    menuItems: [],
+    discipulo: ''
+  })
 
 }
 

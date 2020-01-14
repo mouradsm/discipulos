@@ -11,7 +11,7 @@
             fill-height
           >
             <v-card-title>
-              <v-btn dark icon to="/discipulos">
+              <v-btn dark icon @click="$router.go(-1)">
                 <v-icon>chevron_left</v-icon>
               </v-btn>
 

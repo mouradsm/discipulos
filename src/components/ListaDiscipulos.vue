@@ -1,7 +1,8 @@
 <template>
 <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
-      <v-card>
+      <span v-show="!filteredItens.length" class="subheading">Nenhum discipulo encontrado</span>
+      <v-card v-if="filteredItens.length">
         <v-list two-line sub-header>
           <template v-for="(item, index) in filteredItens">
               <v-list-tile :key="item.nome">
@@ -13,7 +14,7 @@
                   <v-list-tile-sub-title>{{item.cobertura}}</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
-              <v-divider v-if="!(index == discipulos.length - 1)" :key="index"></v-divider>
+              <v-divider v-if="!(index == filteredItens.length - 1)" :key="index"></v-divider>
           </template>
         </v-list>
       </v-card>

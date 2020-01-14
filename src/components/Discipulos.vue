@@ -3,7 +3,7 @@
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-list two-line sub-header>
-          <v-subheader>Discipulos</v-subheader>
+          <v-subheader >Discipulos</v-subheader>
           <v-divider></v-divider>
           <template v-for="(item, index) in discipulos">
               <v-list-tile :key="item.nome" @click="router.push({path: '/detalhe/' + item.uid})">

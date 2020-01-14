@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import router from '../router'
 const fb = require('../firebaseConfig.js')
 
 export default {
@@ -66,8 +67,11 @@ export default {
   },
   data () {
     return {
+      router: router,
       discipulos: [],
-      listaVinculos: []
+      listaVinculos: [],
+      objVinculo: {}
+
     }
   },
   methods: {
@@ -79,6 +83,8 @@ export default {
     },
     isVinculo (uid) {
       return this.listaVinculos.indexOf(uid) > -1
+    },
+    saveVinculo (uid) {
     }
   }
 }

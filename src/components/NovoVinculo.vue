@@ -9,8 +9,10 @@
         solo></v-text-field>
     </v-flex>
     <v-flex xs12>
-      <ListaDiscipulos :filter="query"/>
+      <ListaDiscipulos :filter="query" vinculo/>
     </v-flex>
+
+    <v-btn color="success" type="submit">Salvar</v-btn>
   </v-layout>
 </template>
 <script>

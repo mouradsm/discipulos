@@ -1,27 +1,31 @@
 <template>
-  <v-layout row fill-height>
-    <v-flex xs12 sm6 offset-sm3 class="text-xs-center">
+  <v-layout column fill-height>
+    <v-flex class="text-xs-center">
        <p class="headline mt-3">{{this.discipulo.nome}}</p>
-
       <v-text-field
         class="mt-3"
         append-icon="search"
-        v-model='query'
+        v-model="query"
         solo></v-text-field>
-
+    </v-flex>
+    <v-flex xs12>
+      <ListaDiscipulos :filter="query"/>
     </v-flex>
   </v-layout>
 </template>
 <script>
 const fb = require('../firebaseConfig.js')
+import ListaDiscipulos from './ListaDiscipulos'
 
 export default {
+  components: {
+    ListaDiscipulos
+  },
   created () {
     let uid = this.$route.params.uid
     fb.db.collection('discipulos').doc(uid)
       .get().then(snapshot => {
         this.discipulo = snapshot.data()
-        console.log(this.discipulo)
       })
   },
   data () {

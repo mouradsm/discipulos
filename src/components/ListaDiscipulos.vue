@@ -1,8 +1,9 @@
 <template>
-<v-layout row class="cc" fill-height>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-layout column>
+    <v-flex>
       <span v-show="!filteredItens.length" class="subheading">Nenhum discipulo encontrado</span>
-
+    </v-flex>
+    <v-flex xs12 sm6 offset-sm3 mb-5>
       <v-card v-if="filteredItens.length">
         <v-list two-line sub-header>
           <template v-for="(item, index) in filteredItens">
@@ -34,13 +35,14 @@
           </template>
         </v-list>
       </v-card>
-      <div class="counter elevation-3">
+    </v-flex>
+    <v-flex>
+      <div class="counter elevation-2">
         <p class="">{{filteredItens.length}}</p>
       </div>
     </v-flex>
   </v-layout>
 </template>
-
 <script>
 import router from '../router'
 const fb = require('../firebaseConfig.js')
@@ -94,7 +96,6 @@ export default {
 }
 </script>
 <style scoped>
-
   .counter {
     background-color: gainsboro;
     position: fixed;

@@ -17,7 +17,7 @@
                 </v-list-tile-content>
                 <v-list-tile-action v-show="detalhe">
                   <v-btn icon @click="router.push({path: '/detalhe/' + item.uid})">
-                      <v-icon>arrow_forward</v-icon>
+                      <v-icon>chevron_right</v-icon>
                   </v-btn>
                 </v-list-tile-action>
                 <v-list-tile-action v-show="vinculo">

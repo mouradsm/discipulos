@@ -1,5 +1,5 @@
 <template>
-  <v-layout row fill-height>
+  <v-layout column fill-height>
     <v-flex xs12 sm6 offset-sm3>
       <v-card class="fill-height">
         <v-img
@@ -26,11 +26,7 @@
               </v-btn> -->
               <v-menu bottom left>
             <template v-slot:activator="{ on }">
-              <v-btn
-                dark
-                icon
-                v-on="on"
-              >
+              <v-btn dark icon v-on="on"              >
                 <v-icon>more_vert</v-icon>
               </v-btn>
             </template>
@@ -83,23 +79,7 @@
               <v-list-tile-sub-title>Celular</v-list-tile-sub-title>
             </v-list-tile-content>
 
-            <!-- <v-list-tile-action>
-              <v-icon>chat</v-icon>
-            </v-list-tile-action> -->
           </v-list-tile>
-<!--
-          <v-list-tile >
-            <v-list-tile-action></v-list-tile-action>
-
-            <v-list-tile-content>
-              <v-list-tile-title>(323) 555-6789</v-list-tile-title>
-              <v-list-tile-sub-title>Work</v-list-tile-sub-title>
-            </v-list-tile-content>
-
-            <v-list-tile-action>
-              <v-icon>chat</v-icon>
-            </v-list-tile-action>
-          </v-list-tile> -->
 
           <v-divider inset></v-divider>
 
@@ -126,6 +106,8 @@
             </v-list-tile-content>
           </v-list-tile>
 
+          <v-divider inset></v-divider>
+
           <v-list-tile>
             <v-list-tile-action>
               <v-icon>calendar_today</v-icon>
@@ -136,35 +118,35 @@
               <v-list-tile-sub-title>Nascimento</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
-
-          <!-- <v-list-tile >
-            <v-list-tile-action></v-list-tile-action>
-
-            <v-list-tile-content>
-              <v-list-tile-title>ali_connors@example.com</v-list-tile-title>
-              <v-list-tile-sub-title>Work</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile> -->
-
-          <!-- <v-list-tile >
+          <v-divider inset></v-divider>
+          <v-list-tile>
             <v-list-tile-action>
-              <v-icon color="indigo">location_on</v-icon>
+              <v-icon>emoji_people</v-icon>
             </v-list-tile-action>
-
             <v-list-tile-content>
-              <v-list-tile-title>1400 Main Street</v-list-tile-title>
-              <v-list-tile-sub-title>Orlando, FL 79938</v-list-tile-sub-title>
+              <v-list-tile-title>Vínculos</v-list-tile-title>
+              <v-list-tile-sub-title>Todos os vínculos do discípulo</v-list-tile-sub-title>
             </v-list-tile-content>
-          </v-list-tile> -->
+             <v-list-tile-action>
+                  <v-btn icon @click="router.push({path: '/vinculos/' + discipulo.uid})">
+                      <v-icon>chevron_right</v-icon>
+                  </v-btn>
+                </v-list-tile-action>
+          </v-list-tile>
         </v-list>
       </v-card>
+    </v-flex>
+    <v-flex class="text-xs-center">
+      <v-btn block color="error" type="submit">
+        REMOVER
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
 <script>
 const fb = require('../firebaseConfig.js')
 
-// import router from '../router'
+import router from '../router'
 export default {
 
   created () {
@@ -184,6 +166,7 @@ export default {
     }
   },
   data: () => ({
+    router: router,
     menuItems: [],
     discipulo: ''
   })

@@ -1,9 +1,10 @@
 <template>
   <v-layout row fill-height>
-    <v-flex xs12 sm6 offset-sm3>
-        <div>
-        <organization-chart :datasource="ds"></organization-chart>
-    </div>
+    <v-flex xs12 sm6 offset-sm3 class="mt-2">
+      <div>
+          <p class="subheading">Aqui, os vínculos das pessoa selecionada serão exibidos</p>
+        <!-- <organization-chart :datasource="ds"></organization-chart> -->
+      </div>
     </v-flex>
   </v-layout>
 </template>

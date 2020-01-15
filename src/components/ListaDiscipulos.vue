@@ -1,7 +1,8 @@
 <template>
-<v-layout row>
+<v-layout row class="cc" fill-height>
     <v-flex xs12 sm6 offset-sm3>
       <span v-show="!filteredItens.length" class="subheading">Nenhum discipulo encontrado</span>
+
       <v-card v-if="filteredItens.length">
         <v-list two-line sub-header>
           <template v-for="(item, index) in filteredItens">
@@ -33,6 +34,9 @@
           </template>
         </v-list>
       </v-card>
+      <div class="counter elevation-3">
+        <p class="">{{filteredItens.length}}</p>
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -90,5 +94,19 @@ export default {
 }
 </script>
 <style scoped>
+
+  .counter {
+    background-color: gainsboro;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    font: 1.5em sans-serif;
+    width: 100%;
+  }
+
+  .counter p {
+    padding-top: 15px;
+    opacity: 50%;
+  }
 
 </style>

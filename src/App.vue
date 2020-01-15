@@ -44,7 +44,7 @@
           <v-list-tile-action>
             <v-icon>exit_to_app</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>Sign Out</v-list-tile-content>
+          <v-list-tile-content>Sair</v-list-tile-content>
         </v-list-tile>
       </v-list>
       <v-footer class="pa-3" absolute>
@@ -110,9 +110,9 @@ export default {
       if (this.isAuthenticated) {
         return [
           { title: 'Visualisar', path: '/discipulos', icon: 'people' },
-          { title: 'Cadastrar', path: '/cadastrar', icon: 'person' },
-          { title: 'Vinculos', path: '/vinculos', icon: 'person' },
-          { title: 'Gerenciar Vínculo', path: '/add-vinculo', icon: 'person' }
+          { title: 'Cadastrar', path: '/cadastrar', icon: 'person' }
+          // { title: 'Vinculos', path: '/vinculos', icon: 'person' },
+          // { title: 'Gerenciar Vínculo', path: '/add-vinculo', icon: 'person' }
         ]
       }
     },

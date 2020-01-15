@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="sidebar" absolute app dark disable-resize-watcher>
+    <v-navigation-drawer v-model="sidebar" app fixed dark disable-resize-watcher>
         <v-list class="pa-1">
           <v-list-tile avatar tag="div">
             <v-list-tile-avatar>

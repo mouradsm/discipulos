@@ -42,7 +42,7 @@ export const store = new Vuex.Store({
         .then((firebaseUser) => {
           commit('setUser', { uid: firebaseUser.user.uid, email: firebaseUser.user.email })
           commit('setError', null)
-          router.push('/home')
+          router.push('/')
         })
         .catch((error) => {
           commit('setError', error.message)
@@ -53,6 +53,7 @@ export const store = new Vuex.Store({
     },
     autoSignIn ({ commit }, payload) {
       commit('setUser', {
+        uid: payload.uid,
         email: payload.email
       })
     },
@@ -62,7 +63,7 @@ export const store = new Vuex.Store({
       router.push('/signin')
     },
     salvarDiscipulo ({ commit }, payload) {
-      console.log(store.state.user.uid)
+      payload.uid = store.state.user.uid
       const discipulo = {
         nome: payload.nome,
         email: payload.email,
@@ -72,7 +73,9 @@ export const store = new Vuex.Store({
         idade: payload.idade,
         situacao: payload.situacaoSelecionada,
         nascimento: payload.nascimento,
+        parent_id: payload.uid,
         inclusao: new Date()
+
       }
 
       commit('setLoading', true)

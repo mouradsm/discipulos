@@ -137,8 +137,8 @@
         </v-list>
       </v-card>
     </v-flex>
-    <v-flex>
-      <v-dialog v-model="dialog" persistent max-width="290">
+    <v-flex class="digalog-container">
+      <v-dialog v-model="dialog" persistent max-width="290" class="cc1">
         <template v-slot:activator="{ on }">
           <v-btn color="error" block v-on="on">Remover</v-btn>
         </template>
@@ -199,3 +199,9 @@ export default {
 }
 
 </script>
+<style scoped>
+.digalog-container {
+  height: 45px;
+  overflow: hidden;
+}
+</style>

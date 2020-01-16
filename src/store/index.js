@@ -40,13 +40,14 @@ export const store = new Vuex.Store({
       commit('setLoading', true)
       fb.auth.signInWithEmailAndPassword(payload.email, payload.password)
         .then((firebaseUser) => {
-          commit('setUser', { email: firebaseUser.user.email })
-          commit('setLoading', false)
+          commit('setUser', { uid: firebaseUser.user.uid, email: firebaseUser.user.email })
           commit('setError', null)
           router.push('/home')
         })
         .catch((error) => {
           commit('setError', error.message)
+        })
+        .finally(() => {
           commit('setLoading', false)
         })
     },
@@ -58,14 +59,15 @@ export const store = new Vuex.Store({
     userSignOut ({ commit }) {
       fb.auth.signOut()
       commit('setUser', null)
-      router.push('/')
+      router.push('/signin')
     },
     salvarDiscipulo ({ commit }, payload) {
+      console.log(store.state.user.uid)
       const discipulo = {
         nome: payload.nome,
         email: payload.email,
         cobertura: payload.cobertura,
-        estadoCivil: payload.estadoCivilSelecionado,
+        estado_civil: payload.estadoCivilSelecionado,
         telefone: payload.telefone,
         idade: payload.idade,
         situacao: payload.situacaoSelecionada,
@@ -77,13 +79,15 @@ export const store = new Vuex.Store({
       fb.db.collection('discipulos').add(discipulo)
         .then((docRef) => {
           commit('salvarDiscipulo', discipulo)
-          commit('setLoading', false)
           commit('setError', null)
           console.log('Documento criado: ',
             docRef.id)
         })
         .catch((error) => {
           commit('setError', error.message)
+        })
+        .finally(() => {
+          commit('setLoading', false)
         })
     }
   },

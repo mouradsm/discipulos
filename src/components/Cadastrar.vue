@@ -109,9 +109,8 @@
                     label="Idade"
                     id="idade"
                     type="number"
-                    v-model="form.idade"
-                    :rules="rules.idade"
-                    required
+                    v-model="idade"
+                    disabled
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -148,7 +147,6 @@ export default {
       cobertura: '',
       telefone: '',
       estadoCivilSelecionado: '',
-      idade: null,
       situacaoSelecionada: '',
       inclusao: null,
       nascimento: null
@@ -200,10 +198,9 @@ export default {
       return this.form.nascimento
         ? moment(this.form.nascimento).format('DD/MM/YYYY') : ''
     },
-    discipulos () {
-      return {
-        // this.$store.get
-      }
+    idade () {
+      let birthday = +new Date(this.form.nascimento)
+      return ~~((Date.now() - birthday) / (31557600000))
     }
   },
 

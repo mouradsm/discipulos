@@ -1,5 +1,6 @@
 <template>
   <v-layout column fill-height>
+
     <v-flex xs12 sm6 offset-sm3>
       <v-card class="fill-height">
         <v-img
@@ -136,10 +137,22 @@
         </v-list>
       </v-card>
     </v-flex>
-    <v-flex class="text-xs-center">
-      <v-btn block color="error" type="submit">
-        REMOVER
-      </v-btn>
+    <v-flex>
+      <v-dialog v-model="dialog" persistent max-width="290">
+        <template v-slot:activator="{ on }">
+          <v-btn color="error" block v-on="on">Remover</v-btn>
+        </template>
+        <v-card>
+          <v-card-title class="headline">Tem certeza?</v-card-title>
+          <v-card-text>A remoção de um registro é permante e impossível de ser desfeita.
+            Deseja realmente continuar?</v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="red darken-1" flat @click="dialog = false">Cancelar</v-btn>
+            <v-btn color="green darken-1" flat @click="removerDiscipulo(discipulo.uid)">Confirmar</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-flex>
   </v-layout>
 </template>
@@ -163,10 +176,22 @@ export default {
   methods: {
     format_date (value) {
       if (value) { return value }
+    },
+    removerDiscipulo (uid) {
+      fb.db.collection('discipulos').doc(uid).delete()
+        .then(() => {
+          router.go(-1)
+        }).catch((error) => {
+          console.log(error)
+        })
+        .finally(() => {
+          this.dialog = false
+        })
     }
   },
   data: () => ({
     router: router,
+    dialog: false,
     menuItems: [],
     discipulo: ''
   })

@@ -126,7 +126,10 @@
             </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title>Vínculos</v-list-tile-title>
-              <v-list-tile-sub-title>Todos os vínculos do discípulo</v-list-tile-sub-title>
+              <v-badge>
+                <template v-slot:badge> ? </template>
+                <v-list-tile-sub-title>Todos os vínculos do discípulo</v-list-tile-sub-title>
+              </v-badge>
             </v-list-tile-content>
              <v-list-tile-action>
                   <v-btn icon @click="router.push({path: '/vinculos/' + discipulo.uid})">
@@ -204,4 +207,5 @@ export default {
   height: 45px;
   overflow: hidden;
 }
+
 </style>

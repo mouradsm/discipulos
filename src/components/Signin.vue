@@ -39,7 +39,7 @@
                 required></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center mb-2">
-              <v-btn color="primary" type="submit">Entrar</v-btn>
+              <v-btn disabled color="primary" type="submit">Entrar</v-btn>
             </v-flex>
           </v-layout>
         </form>

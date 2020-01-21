@@ -4,12 +4,12 @@
         <v-list class="pa-1">
           <v-list-tile avatar tag="div">
             <v-list-tile-avatar>
-              <img src="https://randomuser.me/api/portraits/men/85.jpg">
+              <img :src="this.activeUser.photoURL">
             </v-list-tile-avatar>
 
             <!-- TODO: Pegar, do banco de dados, nome do usuário logado baseado no email -->
             <v-list-tile-content>
-              <v-list-tile-title>Diego Moura</v-list-tile-title>
+              <v-list-tile-title>{{this.activeUser.displayName}}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -104,7 +104,7 @@ export default {
       return this.$store.state.appTitle
     },
     activeUser () {
-      return this.$store.state.user
+      return this.$store.state.user || ''
     },
     menuDiscipulos () {
       if (this.isAuthenticated) {

@@ -38,17 +38,25 @@
                 v-model="password"
                 required></v-text-field>
             </v-flex>
-            <v-flex class="text-xs-center">
+            <v-flex class="text-xs-center mb-2">
               <v-btn color="primary" type="submit">Entrar</v-btn>
             </v-flex>
           </v-layout>
         </form>
+        <v-divider></v-divider>
+        <v-flex class="text-xs-center mt-2">
+          <v-btn @click="googleSignIn" color="error">Login com o Google</v-btn>
+        </v-flex>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
+const fb = require('../firebaseConfig.js')
+import firebase from 'firebase'
+import router from '@/router'
+
 export default {
   data () {
     return {
@@ -58,6 +66,15 @@ export default {
     }
   },
   methods: {
+    googleSignIn () {
+      var provider = new firebase.auth.GoogleAuthProvider()
+
+      fb.auth.signInWithPopup(provider)
+        .then((firebaseUser) => {
+          this.$store.commit('setUser', firebaseUser.user)
+          router.push('/')
+        })
+    },
     userSignIn () {
       this.$store.dispatch('userSignIn', {
         email: this.email,

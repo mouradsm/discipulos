@@ -52,10 +52,7 @@ export const store = new Vuex.Store({
         })
     },
     autoSignIn ({ commit }, payload) {
-      commit('setUser', {
-        uid: payload.uid,
-        email: payload.email
-      })
+      commit('setUser', payload)
     },
     userSignOut ({ commit }) {
       fb.auth.signOut()

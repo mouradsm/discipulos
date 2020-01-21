@@ -55,12 +55,14 @@ export default {
     detalhe: Boolean
   },
   mounted () {
-    fb.db.collection('discipulos').get().then(spanshot => {
-      spanshot.forEach(doc => {
-        let discipulo = doc.data()
-        this.discipulos.push({'uid': doc.id, ...discipulo})
+    fb.db.collection('discipulos')
+      .where('parent_id', '==', this.$store.state.user.uid)
+      .get().then(spanshot => {
+        spanshot.forEach(doc => {
+          let discipulo = doc.data()
+          this.discipulos.push({'uid': doc.id, ...discipulo})
+        })
       })
-    })
   },
   computed: {
     filteredItens () {

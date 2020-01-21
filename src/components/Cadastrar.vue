@@ -211,6 +211,7 @@ export default {
     },
     submit () {
       if (!this.$refs.form.validate()) { return }
+      this.form.idade = this.idade
       this.form.inclusao = new Date()
       this.$store.dispatch('salvarDiscipulo', this.form)
       this.snackbar = true

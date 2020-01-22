@@ -49,7 +49,7 @@
       </v-list>
       <v-footer class="pa-3" absolute>
         <v-spacer></v-spacer>
-        <div><v-icon>code</v-icon> v0.0.1</div>
+        <div><v-icon>code</v-icon> v0.1.0</div>
       </v-footer>
     </v-navigation-drawer>
 

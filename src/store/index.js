@@ -65,6 +65,7 @@ export const store = new Vuex.Store({
         nome: payload.nome,
         email: payload.email,
         cobertura: payload.cobertura,
+        bairro: payload.bairro,
         estado_civil: payload.estadoCivilSelecionado,
         telefone: payload.telefone,
         idade: payload.idade,

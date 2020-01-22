@@ -54,6 +54,17 @@
                 v-model="form.cobertura"
                 required></v-text-field>
             </v-flex>
+            <v-flex xs12>
+              <v-text-field
+                solo
+                name="bairro"
+                label="Bairro"
+                id="bairro"
+                :rules="rules.bairro"
+                type="text"
+                v-model="form.bairro"
+                required></v-text-field>
+            </v-flex>
             <v-flex xs7>
               <v-text-field
                 solo
@@ -145,6 +156,7 @@ export default {
       nome: '',
       email: '',
       cobertura: '',
+      bairro: '',
       telefone: '',
       estadoCivilSelecionado: '',
       situacaoSelecionada: '',
@@ -158,6 +170,7 @@ export default {
         nome: [val => (val || '').length > 0 || 'Informe o nome do discípulo!'],
         idade: [val => val > 1 || 'Informe a idade do discipulo!'],
         cobertura: [(v) => !!v || 'Informe uma cobertura'],
+        bairro: [(v) => !!v || 'Informe o bairro'],
         nascimento: [(v) => !!v || 'Informe a Data de Nascimento!'],
         email: [
           (v) => !!v || 'Informe um email!',
@@ -188,6 +201,7 @@ export default {
         this.form.nome &&
         this.form.email &&
         this.form.telefone &&
+        this.form.bairro &&
         this.form.estadoCivilSelecionado &&
         this.form.situacaoSelecionada &&
         this.form.nascimento &&

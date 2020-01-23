@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "christian-manager"
+    "default": "christian-manager-develop",
+    "production": "christian-manager",
+    "develop": "christian-manager-develop"
   }
 }

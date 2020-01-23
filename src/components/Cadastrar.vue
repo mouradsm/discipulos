@@ -41,7 +41,7 @@
                 id="email"
                 v-model="form.email"
                 :rules="rules.email"
-                required></v-text-field>
+                ></v-text-field>
             </v-flex>
             <v-flex xs12>
               <v-text-field
@@ -173,8 +173,8 @@ export default {
         bairro: [(v) => !!v || 'Informe o bairro'],
         nascimento: [(v) => !!v || 'Informe a Data de Nascimento!'],
         email: [
-          (v) => !!v || 'Informe um email!',
-          (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Informe um email válido!'
+          // (v) => !!v || 'Informe um email!',
+          // (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Informe um email válido!'
         ],
         telefone: [
           val => (val || '').length === 11 || 'Informe um número de celular'

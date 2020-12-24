@@ -1,13 +1,14 @@
 <template>
-  <v-layout row>
+  <v-layout row pl-1 pr-1>
     <v-flex>
      <v-text-field
         class="mt-3"
         append-icon="search"
         v-model="query"
-        solo></v-text-field>
+        solo>
+     </v-text-field>
 
-        <ListaDiscipulos :filter="query" detalhe />
+     <ListaDiscipulos :filter="query" detalhe />
     </v-flex>
   </v-layout>
 </template>

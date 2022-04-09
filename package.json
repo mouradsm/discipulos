@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "firebase": "^5.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "vue": "^2.5.2",
     "vue-moment": "^4.1.0",
     "vue-organization-chart": "^1.1.6",
